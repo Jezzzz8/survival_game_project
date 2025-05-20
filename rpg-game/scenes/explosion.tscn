@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b83ult2t0ctbv"]
+
+[ext_resource type="Script" uid="uid://dsmtjwolbq6hw" path="res://scripts/explosion.gd" id="1_17npe"]
+[ext_resource type="AudioStream" uid="uid://csb7ebomntn1r" path="res://assets/sprites/sounds/explosion.wav" id="2_nfeox"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_17npe"]
+
+[sub_resource type="Curve" id="Curve_17npe"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_nfeox"]
+offsets = PackedFloat32Array(0, 0.234234, 0.801802, 1)
+colors = PackedColorArray(0.211765, 0.239216, 0.290196, 1, 0.606457, 0.594019, 0.262904, 1, 0.94902, 0.901961, 0.239216, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3oo6d"]
+radius = 64.0
+
+[node name="Explosion" type="Area2D"]
+script = ExtResource("1_17npe")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.94902, 0.901961, 1, 1)
+self_modulate = Color(0.94902, 0.901961, 0.239216, 1)
+amount = 50
+texture = SubResource("CanvasTexture_17npe")
+lifetime = 0.5
+explosiveness = 1.0
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 200.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_17npe")
+color = Color(0.94902, 0.901961, 0.239216, 1)
+color_ramp = SubResource("Gradient_nfeox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3oo6d")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nfeox")
+bus = &"sound effects"

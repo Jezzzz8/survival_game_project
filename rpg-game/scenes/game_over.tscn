@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8k53dt66kste"]
+
+[ext_resource type="Script" uid="uid://dai72tn0uep6q" path="res://scripts/game_over.gd" id="1_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://b04m8qh0m1s4a" path="res://assets/sprites/911 bg.jpg" id="1_wqhvx"]
+[ext_resource type="FontFile" uid="uid://40pi1mllsj0u" path="res://assets/sprites/Daydream.ttf" id="2_tbwuq"]
+[ext_resource type="Script" uid="uid://cn7s1gw5tiu0j" path="res://scripts/FinalScore.gd" id="4_racf3"]
+[ext_resource type="AudioStream" uid="uid://clitxucls4bry" path="res://assets/sprites/Cat Laughing Meme Sound Effect.wav" id="5_7m3ot"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_racf3"]
+texture = ExtResource("1_wqhvx")
+modulate_color = Color(0.537011, 0.537011, 0.537011, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7m3ot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3hpu"]
+bg_color = Color(0.508541, 0.000184245, 0.508537, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.539863, 1.03481e-06, 2.88785e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irg28"]
+bg_color = Color(0.215279, 3.15978e-05, 0.215277, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.281667, 2.03052e-07, 1.08294e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jtsn"]
+bg_color = Color(1, 0, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tbwuq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_racf3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = -113.0
+offset_right = 203.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="FinalScoreTextLabel2" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0.889991, 0, 0.25555, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 16
+text = "Final Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0, 0.501519, 0.796411, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_racf3")
+
+[node name="Go Back" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7m3ot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v3hpu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_irg28")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jtsn")
+text = "Go Back"
+
+[node name="CatLaughingMemeSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7m3ot")
+bus = &"sound effects"
+
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/Go Back" to="." method="_on_go_back_button_down"]

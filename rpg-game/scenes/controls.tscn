@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5u7jv1lpb8nr"]
+
+[ext_resource type="Script" uid="uid://brr1px4cuwfgq" path="res://scripts/controls.gd" id="1_cywyo"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_i2gav"]
+[ext_resource type="Texture2D" uid="uid://cwmwtqg1p3ewl" path="res://assets/sprites/Bomb.png" id="2_5tddo"]
+[ext_resource type="FontFile" uid="uid://40pi1mllsj0u" path="res://assets/sprites/Daydream.ttf" id="4_ihl6s"]
+[ext_resource type="Script" uid="uid://b1q0popufuwef" path="res://scripts/kill_count_label.gd" id="5_jlst0"]
+[ext_resource type="Script" uid="uid://b7enhe5ceklrw" path="res://scripts/life_count_label.gd" id="6_dloai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlst0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dloai"]
+bg_color = Color(0.508541, 0.000184245, 0.508537, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6bol"]
+bg_color = Color(0.215279, 3.15978e-05, 0.215277, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8sje"]
+bg_color = Color(1, 0, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dloai"]
+radius = 20.0
+
+[node name="TouchControls" type="CanvasLayer"]
+script = ExtResource("1_cywyo")
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_i2gav")]
+pressed_color = Color(0.474, 0.474, 0.474, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 152.0
+offset_bottom = 49.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_ihl6s")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jlst0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dloai")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k6bol")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a8sje")
+text = "Settings"
+
+[node name="VBoxContainer2" type="GridContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -339.0
+offset_top = 17.0
+offset_right = -9.0
+offset_bottom = 65.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="LifeCountLabel2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_ihl6s")
+theme_override_font_sizes/font_size = 16
+text = "Life:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeCountLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ihl6s")
+theme_override_font_sizes/font_size = 16
+text = "TEXT HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_dloai")
+
+[node name="KillCountLabel2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ihl6s")
+theme_override_font_sizes/font_size = 16
+text = "Kill:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillCountLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ihl6s")
+theme_override_font_sizes/font_size = 16
+text = "TEXT HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_jlst0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -228.0
+offset_right = -137.0
+offset_bottom = -188.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Drop" type="TouchScreenButton" parent="Control"]
+scale = Vector2(4.75, 4.75)
+texture_normal = ExtResource("2_5tddo")
+shape = SubResource("CircleShape2D_dloai")
+shape_visible = false
+action = "drop"
+
+[connection signal="button_down" from="VBoxContainer/Settings" to="." method="_on_settings_button_down"]
+[connection signal="pressed" from="Control/Drop" to="." method="_on_drop_pressed"]
+[connection signal="released" from="Control/Drop" to="." method="_on_drop_released"]

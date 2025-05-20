@@ -1,0 +1,229 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci8ayxq48eycj"]
+
+[ext_resource type="Texture2D" uid="uid://b04m8qh0m1s4a" path="res://assets/sprites/911 bg.jpg" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://dmc4evwgbq8cd" path="res://scripts/settings.gd" id="1_6wm04"]
+[ext_resource type="FontFile" uid="uid://40pi1mllsj0u" path="res://assets/sprites/Daydream.ttf" id="3_f4mfi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6d6q"]
+texture = ExtResource("1_5p8wc")
+modulate_color = Color(0.537011, 0.537011, 0.537011, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gis3k"]
+bg_color = Color(0.508541, 0.000184245, 0.508537, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.539863, 1.03481e-06, 2.88785e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83j8s"]
+bg_color = Color(0.215279, 3.15978e-05, 0.215277, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.281667, 2.03052e-07, 1.08294e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjs24"]
+bg_color = Color(1, 0, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wm04")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r6d6q")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -269.5
+offset_top = 73.0
+offset_right = 269.5
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_f4mfi")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound Settings" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Sound Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = -144.5
+offset_right = 203.5
+offset_bottom = 144.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="VolumeLabel" type="Label" parent="CanvasLayer/Sound Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(3.08037e-06, 0.821166, 0.0288684, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0.127915, 0, 0.940391, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_f4mfi")
+theme_override_font_sizes/font_size = 16
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume" type="GridContainer" parent="CanvasLayer/Sound Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="CanvasLayer/Sound Settings/VBoxContainer/Volume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f4mfi")
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="CanvasLayer/Sound Settings/VBoxContainer/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="MusicLabel" type="Label" parent="CanvasLayer/Sound Settings/VBoxContainer/Volume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f4mfi")
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/Sound Settings/VBoxContainer/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="CanvasLayer/Sound Settings/VBoxContainer/Volume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f4mfi")
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/Sound Settings/VBoxContainer/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="CameraLabel" type="Label" parent="CanvasLayer/Sound Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.819608, 0.027451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0.129412, 0, 0.941176, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_f4mfi")
+theme_override_font_sizes/font_size = 16
+text = "Camera"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera" type="GridContainer" parent="CanvasLayer/Sound Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="CameraZoomLabel" type="Label" parent="CanvasLayer/Sound Settings/VBoxContainer/Camera"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f4mfi")
+text = "Zoom"
+
+[node name="CameraZoomSlider" type="HSlider" parent="CanvasLayer/Sound Settings/VBoxContainer/Camera"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.5
+max_value = 3.0
+step = 0.5
+value = 1.5
+
+[node name="Go Back" type="Button" parent="CanvasLayer/Sound Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_f4mfi")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83j8s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjs24")
+text = "Go Back"
+
+[connection signal="value_changed" from="CanvasLayer/Sound Settings/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sound Settings/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sound Settings/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sound Settings/VBoxContainer/Camera/CameraZoomSlider" to="." method="_on_camera_zoom_slider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Sound Settings/VBoxContainer/Go Back" to="." method="_on_go_back_pressed"]

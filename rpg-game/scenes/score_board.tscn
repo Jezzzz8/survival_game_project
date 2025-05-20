@@ -1,0 +1,191 @@
+[gd_scene load_steps=9 format=3 uid="uid://djm85ml8215dq"]
+
+[ext_resource type="Texture2D" uid="uid://b04m8qh0m1s4a" path="res://assets/sprites/911 bg.jpg" id="1_gjtyh"]
+[ext_resource type="Script" uid="uid://dene8kjiqcyq6" path="res://scripts/score_board.gd" id="1_wcrpl"]
+[ext_resource type="FontFile" uid="uid://40pi1mllsj0u" path="res://assets/sprites/Daydream.ttf" id="2_wcrpl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qnge1"]
+texture = ExtResource("1_gjtyh")
+modulate_color = Color(0.537011, 0.537011, 0.537011, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wcrpl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnge1"]
+bg_color = Color(0.508541, 0.000184245, 0.508537, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.539863, 1.03481e-06, 2.88785e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8f0e"]
+bg_color = Color(0.215279, 3.15978e-05, 0.215277, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.281667, 2.03052e-07, 1.08294e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c4ns"]
+bg_color = Color(1, 0, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[node name="ScoreBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wcrpl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qnge1")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.0
+offset_top = 127.0
+offset_right = 278.0
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_wcrpl")
+theme_override_font_sizes/font_size = 32
+text = "ScoreBoard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score Board" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Score Board"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323351
+anchor_top = 0.325617
+anchor_right = 0.676649
+anchor_bottom = 0.771605
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Score Board/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="HighScoreTextLabel" type="Label" parent="CanvasLayer/Score Board/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0.889991, 0, 0.25555, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_wcrpl")
+theme_override_font_sizes/font_size = 16
+text = "🏆 High Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore Label" type="Label" parent="CanvasLayer/Score Board/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0.796078, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_wcrpl")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Score Board/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CurrentScoreTextLabel" type="Label" parent="CanvasLayer/Score Board/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0, 0.501519, 0.796411, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_wcrpl")
+theme_override_font_sizes/font_size = 16
+text = "Current Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentScoreLabel" type="Label" parent="CanvasLayer/Score Board/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(0.890196, 0, 0.254902, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_wcrpl")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Go Back" type="Button" parent="CanvasLayer/Score Board/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_wcrpl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wcrpl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qnge1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t8f0e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2c4ns")
+text = "Go back"
+
+[connection signal="button_down" from="CanvasLayer/Score Board/VBoxContainer/Go Back" to="." method="_on_go_back_button_down"]

@@ -1,0 +1,169 @@
+[gd_scene load_steps=9 format=3 uid="uid://r702atq8dahw"]
+
+[ext_resource type="Script" uid="uid://63av6awqxhu7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://b04m8qh0m1s4a" path="res://assets/sprites/911 bg.jpg" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://40pi1mllsj0u" path="res://assets/sprites/Daydream.ttf" id="2_ekxnf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("1_l6cm7")
+modulate_color = Color(0.537011, 0.537011, 0.537011, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.508541, 0.000184245, 0.508537, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.539863, 1.03481e-06, 2.88785e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.215279, 3.15978e-05, 0.215277, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.281667, 2.03052e-07, 1.08294e-07, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+bg_color = Color(1, 0, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.709804)
+shadow_size = 9
+shadow_offset = Vector2(5, 10)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.323351
+anchor_top = 0.325617
+anchor_right = 0.676649
+anchor_bottom = 0.771605
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Start Game Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Start Game"
+
+[node name="Score Board Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Score Board
+"
+
+[node name="Settings Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Settings
+"
+
+[node name="Exit Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.65098, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Exit"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -212.0
+offset_right = 269.5
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.694118)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 32
+text = "Palubog nga Dula"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/Start Game Button" to="." method="_on_start_game_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/Score Board Button" to="." method="_on_score_board_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/Settings Button" to="." method="_on_settings_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/Exit Button" to="." method="_on_exit_button_button_down"]
